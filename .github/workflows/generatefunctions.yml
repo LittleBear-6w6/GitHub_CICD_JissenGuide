@@ -1,4 +1,4 @@
-name: Compare functions
+name: Generate functions
 on: push
 jobs:
   generate:
