@@ -4,6 +4,6 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ""${CONTEXT}"
+      - run: echo "${CONTEXT}"
         env:
           CONTEX: ${{ toJSON(github) }}
