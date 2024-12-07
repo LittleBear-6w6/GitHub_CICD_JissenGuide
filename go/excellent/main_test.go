@@ -1,0 +1,10 @@
+package main
+
+inport "testing"
+
+func TestEvenOrOdd(t *testing.T){
+	result := EvenOrOdd(10)
+	if result != "even"{
+		t.errorf("expected: even, actual: %s",result)
+	}
+}
