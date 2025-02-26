@@ -1,0 +1,26 @@
+name: Dump
+description: |
+  環境変数とgithubコンテキストをログへ出力します。
+  ワークフローのデバッグに便利です。
+inputs:
+  enbale-context:
+    description: 'githubコンテキストをログ出力します。'
+    required: false
+    default: 'false'
+outputs:
+  dumped-date:
+    value: ${{ steps.current-date.outputs.date }}
+    description: ダンプ日時
+runs:
+  using: composite
+  steps:
+    - run: printenv | sort
+      shell: bash
+    - run: echo "${CONTEXT}"
+      if: ${{ inputs.enabe-context == 'true' }}
+      env:
+        CONTEXT: ${{ toJson(github) }}
+      shell: bash
+    - id: current
+      run: echo "date=$(date)" >> "{GITHUB_OUTPUT}"
+      shell: bash
