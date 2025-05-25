@@ -1,4 +1,4 @@
-name: flow control
+name: Flow control
 on: push
 jobs:
   run:
